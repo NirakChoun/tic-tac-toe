@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Utilities */
+@font-face {
+    font-family: "AZN";
+    src: 
+        url("fonts/aznknucklestriallight-jeyjl-webfont.woff") format("woff"),
+        url("fonts/aznknucklestriallight-jeyjl-webfont.woff2") format("woff2");
+}
+
+.btn {
+    width: 100px;
+    padding: 5px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.start {
+    background-color: #228B22;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "AZN";
+    background-color: #EDEDED;
+}
+
+.container {
+    width: 90vw;
+    height: 90vh;
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+}
+
+header {
+    grid-row: 1 / 2;
+    grid-column: 1 / 4;
+    align-self: center;
+    justify-self: center;
+}
+
+header h1 {
+    font-size: 5rem;
+}
+
+main {
+    grid-row: 2 / 6;
+    grid-column: 1 / 4;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.player {
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.player h2 {
+    font-size: 2.5rem;
+}
+
+.player div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-choice {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    border: 3px solid #000;
+    font-size: 1.5rem;
+}
+
+.x {
+    background-color: #C41E3A;
+    color: #fff;
+}
+
+.o {
+    background-color: #0047AB;
+    color: #fff;
+}
+
+.player input[type="text"] {
+    padding: 10px;
+    max-width: 100%;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid #000;
+    font-size: 1.2rem;
+}
+
+.btn-group {
+    grid-row: 6 / 7;
+    grid-column: 1 / 4;
+    align-self: center;
+    justify-self: center;
+}
