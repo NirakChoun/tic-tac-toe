@@ -148,8 +148,13 @@ const ticTacToe = (function () {
     return { checkWinner };
 })();
 
-function createPlayer() {
+function createPlayer(name) {
     let playerChoice;
+    let playerName = name;
+
+    function getName() {
+        return playerName;
+    }
 
     function setChoice(choice) {
         playerChoice = choice;
@@ -159,7 +164,7 @@ function createPlayer() {
         return playerChoice;
     }
 
-    return { setChoice, getChoice };
+    return { setChoice, getChoice, getName };
 }
 
 function createAI () {
@@ -183,39 +188,108 @@ function createAI () {
     return { setChoice, getChoice, randomizeLetter };
 }
 
-let playerWin, aiWin;
-const player = createPlayer();
-const ai = createAI();
-let playerChoice = prompt("Choose X or O: ").toUpperCase();
-if (playerChoice === "X") {
-    player.setChoice("X");
-    ai.setChoice("O");
-} else {
-    player.setChoice("O");
-    ai.setChoice("X");
+// let playerWin, aiWin;
+// const player = createPlayer();
+// const ai = createAI();
+// let playerChoice = prompt("Choose X or O: ").toUpperCase();
+// if (playerChoice === "X") {
+//     player.setChoice("X");
+//     ai.setChoice("O");
+// } else {
+//     player.setChoice("O");
+//     ai.setChoice("X");
+// }
+
+// gameBoard.printGameBoard();
+// const newGameBoard = gameBoard.getGameBoard();
+
+// do {
+//     let playerLetter = prompt(`Enter a letter to place ${player.getChoice()}: `);
+//     gameBoard.setGameBoard(playerLetter, player.getChoice());
+//     gameBoard.printGameBoard();
+//     playerWin = ticTacToe.checkWinner(newGameBoard, playerLetter, player.getChoice());
+//     if (playerWin) {
+//         console.log("Player wins!");
+//         break;
+//     }
+
+//     let aiLetter = ai.randomizeLetter();
+//     console.log(`The AI places ${ai.getChoice()} on ${aiLetter}`);
+//     gameBoard.setGameBoard(aiLetter, ai.getChoice());
+//     gameBoard.printGameBoard();
+//     aiWin = ticTacToe.checkWinner(newGameBoard, aiLetter, ai.getChoice());
+//     if (aiWin) {
+//         console.log("AI wins!");
+//         break;
+//     }
+
+// } while (true);
+
+const startScreen = document.querySelector("#start-screen");
+const startBtn = document.querySelector(".btn.start");
+const gameplayScreen = document.querySelector("#gameplay-screen");
+const gameplayScreenBtn = document.querySelector(".btn-group.gameplay");
+const continueBtn = document.querySelector(".btn.continue");
+const restartBtn = document.querySelector(".btn.restart");
+const endBtn = document.querySelector(".btn.end");
+const playerOneBtnX = document.querySelector("#playerOneBtnX");
+const playerOneBtnO = document.querySelector("#playerOneBtnO");
+const playerTwoBtnX = document.querySelector("#playerTwoBtnX");
+const playerTwoBtnO = document.querySelector("#playerTwoBtnO");
+const playerOneName = document.querySelector("#playerOneName");
+const playerTwoName = document.querySelector("#playerTwoName");
+let selected = false;
+
+function inputCorrect(isSelected, playerOneName, playerTwoName) {
+    if (isSelected && playerOneName != "" && playerTwoName != "") {
+        startBtn.disabled = false;
+    }
 }
 
-gameBoard.printGameBoard();
-const newGameBoard = gameBoard.getGameBoard();
+function displayGameplay() {
+    startScreen.style.display = "none";
+    gameplayScreen.style.display = "grid";
+    startBtn.style.display = "none";
+}
 
-do {
-    let playerLetter = prompt(`Enter a letter to place ${player.getChoice()}: `);
-    gameBoard.setGameBoard(playerLetter, player.getChoice());
-    gameBoard.printGameBoard();
-    playerWin = ticTacToe.checkWinner(newGameBoard, playerLetter, player.getChoice());
-    if (playerWin) {
-        console.log("Player wins!");
-        break;
-    }
+function displayStart() {
+    startScreen.style.display = "grid";
+    gameplayScreen.style.display = "none";
+}
 
-    let aiLetter = ai.randomizeLetter();
-    console.log(`The AI places ${ai.getChoice()} on ${aiLetter}`);
-    gameBoard.setGameBoard(aiLetter, ai.getChoice());
-    gameBoard.printGameBoard();
-    aiWin = ticTacToe.checkWinner(newGameBoard, aiLetter, ai.getChoice());
-    if (aiWin) {
-        console.log("AI wins!");
-        break;
-    }
+playerOneBtnX.addEventListener("click", () => {
+    playerOneBtnX.classList.remove("unselected");
+    playerOneBtnO.classList.add("unselected");
+    playerTwoBtnX.classList.add("unselected");
+    playerTwoBtnO.classList.remove("unselected");
+    selected = true;
+})
 
-} while (true);
+playerOneBtnO.addEventListener("click", () => {
+    playerOneBtnO.classList.remove("unselected");
+    playerOneBtnX.classList.add("unselected");
+    playerTwoBtnO.classList.add("unselected");
+    playerTwoBtnX.classList.remove("unselected");
+    selected = true;
+})
+
+playerTwoBtnX.addEventListener("click", () => {
+    playerTwoBtnX.classList.remove("unselected");
+    playerTwoBtnO.classList.add("unselected");
+    playerOneBtnX.classList.add("unselected");
+    playerOneBtnO.classList.remove("unselected");
+    selected = true;
+})
+
+playerTwoBtnO.addEventListener("click", () => {
+    playerTwoBtnO.classList.remove("unselected");
+    playerTwoBtnX.classList.add("unselected");
+    playerOneBtnO.classList.add("unselected");
+    playerOneBtnX.classList.remove("unselected");
+    selected = true;
+})
+
+startBtn.addEventListener("click", () => {
+    displayGameplay();
+});
+

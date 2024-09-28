@@ -11,33 +11,73 @@
       <header>
         <h1>Tic Tac Toe</h1>
       </header>
-      <main>
+      <!-- Start Screen -->
+      <main id="start-screen">
         <div class="player one">
           <h2>Player 1</h2>
           <div>
-            <button class="btn-choice x" required>X</button>
-            <button class="btn-choice o" required>O</button>
+            <button id="playerOneBtnX" class="btn-choice x" value="X" required>
+              X
+            </button>
+            <button id="playerOneBtnO" class="btn-choice o" value="O" required>
+              O
+            </button>
           </div>
           <input
             type="text"
             placeholder="Enter name"
             minlength="2"
             maxlength="10"
+            id="playerOneName"
           />
         </div>
         <div class="player two">
-          <h2>Player 1</h2>
+          <h2>Player 2</h2>
           <div class="">
-            <button class="btn-choice x" required>X</button>
-            <button class="btn-choice o" required>O</button>
+            <button id="playerTwoBtnX" class="btn-choice x" value="X" required>
+              X
+            </button>
+            <button id="playerTwoBtnO" class="btn-choice o" value="O" required>
+              O
+            </button>
           </div>
-          <input type="text" placeholder="Enter name" />
+          <input type="text" placeholder="Enter name" id="playerTwoName" />
         </div>
       </main>
       <div class="btn-group">
         <button class="btn start">Start</button>
       </div>
+      <!-- End Start Screen -->
+
+      <!-- Gameplay Screen -->
+      <main id="gameplay-screen">
+        <div class="player one">
+          <h2>Nirak</h2>
+          <p class="score">0</p>
+        </div>
+        <div class="gameboard">
+          <div class="col x-text">X</div>
+          <div class="col o-text">O</div>
+          <div class="col"></div>
+          <div class="col"></div>
+          <div class="col"></div>
+          <div class="col"></div>
+          <div class="col"></div>
+          <div class="col"></div>
+          <div class="col"></div>
+        </div>
+        <div class="player two">
+          <h2>Nancy</h2>
+          <p class="score">0</p>
+        </div>
+      </main>
+      <div class="btn-group gameplay">
+        <button class="btn continue">Continue</button>
+        <button class="btn restart">Restart</button>
+        <button class="btn end">End</button>
+      </div>
+      <!-- End Gameplay Screen -->
     </div>
-    <!-- <script src="script.js"></script> -->
+    <script src="script.js"></script>
   </body>
 </html>

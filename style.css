@@ -13,16 +13,28 @@
 }
 
 .btn {
-    width: 100px;
+    width: 120px;
     padding: 5px;
     border: 2px solid #000;
     border-radius: 10px;
     font-size: 1.5rem;
     color: #fff;
+    cursor: pointer;
 }
 
-.start {
+.start,
+.continue {
     background-color: #228B22;
+}
+
+.restart {
+    background-color: #FFBF00;
+    color: #000;
+}
+
+.end {
+    background-color: #C41E3A;
+    color: #fff;
 }
 
 body {
@@ -31,7 +43,7 @@ body {
     justify-content: center;
     align-items: center;
     font-family: "AZN";
-    background-color: #EDEDED;
+    background-color: #E9DCC9;
 }
 
 .container {
@@ -56,8 +68,11 @@ header h1 {
 main {
     grid-row: 2 / 6;
     grid-column: 1 / 4;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+}
+
+/* Start Screen */
+#start-screen {
+    display: grid;  
 }
 
 .player {
@@ -86,6 +101,7 @@ main {
     border-radius: 10px;
     border: 3px solid #000;
     font-size: 1.5rem;
+    cursor: pointer;
 }
 
 .x {
@@ -98,6 +114,11 @@ main {
     color: #fff;
 }
 
+.unselected {
+    background-color: grey;
+    opacity: 0.5;
+}
+
 .player input[type="text"] {
     padding: 10px;
     max-width: 100%;
@@ -106,10 +127,64 @@ main {
     border: 1px solid #000;
     font-size: 1.2rem;
 }
+/* End Start Screen */
+
+/* Gameplay Screen */
+#gameplay-screen {
+    display: none;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.player.one {
+    grid-column: 1 / 2;
+}
+
+.gameboard {
+    grid-column: 2 / 4;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    border: 1px solid #000;
+}
+
+.col {
+    background-color: #1b263b;
+    border: 1px solid #E5E4E2;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10rem;
+}
+
+.x-text {
+    color: #FF3131;
+}
+
+.o-text {
+    color: #1F51FF;
+}
+
+.score {
+    font-size: 5rem;
+}
+
+.player.two {
+    grid-column: 4 / 5;
+}
+
+/* End Gameplay Screen */
 
 .btn-group {
     grid-row: 6 / 7;
     grid-column: 1 / 4;
     align-self: center;
     justify-self: center;
+    display: flex;
+    gap: 50px;
 }
+
+.gameplay {
+    display: none;
+}
+
