@@ -65,6 +65,11 @@ header h1 {
     font-size: 5rem;
 }
 
+form {
+    grid-row: 2 / 6;
+    grid-column: 1 / 4;
+}
+
 main {
     grid-row: 2 / 6;
     grid-column: 1 / 4;
@@ -165,7 +170,8 @@ main {
     color: #1F51FF;
 }
 
-.score {
+#playerOneScore, 
+#playerTwoScore {
     font-size: 5rem;
 }
 

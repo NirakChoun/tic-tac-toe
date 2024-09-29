@@ -12,16 +12,26 @@
         <h1>Tic Tac Toe</h1>
       </header>
       <!-- Start Screen -->
-      <main id="start-screen">
+      <form id="start-screen" action="/submit" method="POST">
         <div class="player one">
           <h2>Player 1</h2>
           <div>
-            <button id="playerOneBtnX" class="btn-choice x" value="X" required>
-              X
-            </button>
-            <button id="playerOneBtnO" class="btn-choice o" value="O" required>
-              O
-            </button>
+            <input
+              type="button"
+              id="playerOneBtnX"
+              class="btn-choice x"
+              value="X"
+              required
+            >
+            </input>
+            <input
+              type="button"
+              id="playerOneBtnO"
+              class="btn-choice o"
+              value="O"
+              required
+            >
+            </input>
           </div>
           <input
             type="text"
@@ -29,46 +39,65 @@
             minlength="2"
             maxlength="10"
             id="playerOneName"
+            required
           />
         </div>
         <div class="player two">
           <h2>Player 2</h2>
           <div class="">
-            <button id="playerTwoBtnX" class="btn-choice x" value="X" required>
-              X
-            </button>
-            <button id="playerTwoBtnO" class="btn-choice o" value="O" required>
-              O
-            </button>
+            <input
+              type="button"
+              id="playerTwoBtnX"
+              class="btn-choice x"
+              value="X"
+              required
+            >
+            </input>
+            <input
+              type="button"
+              id="playerTwoBtnO"
+              class="btn-choice o"
+              value="O"
+              required
+            >
+
+            </input>
           </div>
-          <input type="text" placeholder="Enter name" id="playerTwoName" />
+          <input
+            type="text"
+            placeholder="Enter name"
+            id="playerTwoName"
+            required
+          />
         </div>
-      </main>
+      </form>
       <div class="btn-group">
-        <button class="btn start">Start</button>
+        <button type="submit" class="btn start" form="start-screen">
+          Start
+        </button>
       </div>
       <!-- End Start Screen -->
 
       <!-- Gameplay Screen -->
       <main id="gameplay-screen">
         <div class="player one">
-          <h2>Nirak</h2>
-          <p class="score">0</p>
+          <h2 id="playerOneDisplayName"></h2>
+          <p id="playerOneScore">0</p>
         </div>
         <div class="gameboard">
-          <div class="col x-text">X</div>
-          <div class="col o-text">O</div>
-          <div class="col"></div>
-          <div class="col"></div>
-          <div class="col"></div>
-          <div class="col"></div>
-          <div class="col"></div>
-          <div class="col"></div>
-          <div class="col"></div>
+          <button class="col" value="a"></button>
+          <button class="col" value="b"></button>
+          <button class="col" value="c"></button>
+          <button class="col" value="d"></button>
+          <button class="col" value="e"></button>
+          <button class="col" value="f"></button>
+          <button class="col" value="g"></button>
+          <button class="col" value="h"></button>
+          <button class="col" value="i"></button>
         </div>
         <div class="player two">
-          <h2>Nancy</h2>
-          <p class="score">0</p>
+          <h2 id="playerTwoDisplayName"></h2>
+          <p id="playerTwoScore">0</p>
         </div>
       </main>
       <div class="btn-group gameplay">
